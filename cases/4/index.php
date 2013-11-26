@@ -1,3 +1,6 @@
+<?php
+header('X-XSS-Protection: 0');
+?>
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
