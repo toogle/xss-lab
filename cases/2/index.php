@@ -239,7 +239,7 @@ if (isset($_GET['id'])) {
 			</div><!-- .modal -->
 		</div><!-- .container -->
 
-		<script src="../../js/lib/jquery-1.10.2.min.js"></script>
+		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
 		<script src="../../js/lib/bootstrap.min.js"></script>
 	</body>
 </html>

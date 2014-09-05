@@ -108,7 +108,7 @@ header('X-XSS-Protection: 0');
 			</div><!-- .row -->
 		</div><!-- .container -->
 
-		<script src="../../js/lib/jquery-1.10.2.min.js"></script>
+		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
 		<script src="../../js/lib/bootstrap.min.js"></script>
 	</body>
 </html>
