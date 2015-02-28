@@ -75,9 +75,6 @@ header('X-XSS-Protection: 0');
 						// NOTE: The following code intended for demonstration purposes only.
 						//       It is EXTREMELY DANGER to use it for real applications.
 						$conn = mysqli_connect('localhost', 'xss-lab', 'xss-lab', 'xss-lab');
-						mysqli_query($conn, "SET NAMES utf8");
-						mysqli_query($conn, "SET CHARACTER SET utf8");
-						mysqli_set_charset($conn, 'utf8');
 
 						$query = isset($_GET['q']) ? mysqli_real_escape_string($conn, $_GET['q']) : '';
 						if (isset($_GET['q']))

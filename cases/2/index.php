@@ -22,9 +22,6 @@ if (!isset($_GET['uid'])) {
 $uid = intval($_GET['uid']);
 
 $conn = mysqli_connect('localhost', 'xss-lab', 'xss-lab', 'xss-lab');
-mysqli_query($conn, "SET NAMES utf8");
-mysqli_query($conn, "SET CHARACTER SET utf8");
-mysqli_set_charset($conn, 'utf8');
 
 if (isset($_GET['id'])) {
 	$id = intval($_GET['id']);
