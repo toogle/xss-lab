@@ -57,52 +57,21 @@ header('X-XSS-Protection: 0');
 
 				<div class="col-md-9">
 					<div class="well well-lg">
-						<h4>Обратная связь</h4>
-
-						<?php
-						// NOTE: The following code intended for demonstration purposes only.
-						//       It is EXTREMELY DANGER to use it for real applications.
-						$email = isset($_GET['email']) ? $_GET['email'] : '';
-						$name = isset($_GET['name']) ? $_GET['name'] : '';
-						$message = isset($_GET['message']) ? $_GET['message'] : '';
-						?>
-
-						<?php if ($email && $name && $message): ?>
-							<div class="alert alert-success">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								Ваше сообщение успешно отправлено!
-							</div>
-						<?php elseif ($email || $name || $message): ?>
-							<div class="alert alert-danger">
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
-								Все поля обязательны для заполнения!
-							</div>
-						<?php endif; ?>
-
-						<form class="form-horizontal" method="GET">
-							<div class="form-group">
-								<label for="email-field" class="col-lg-2 control-label">Ваш E-mail</label>
-								<div class="col-lg-4">
-									<input type="email" name="email" class="form-control" id="email-field" value="<?= $email ?>" autocomplete="off" autofocus required>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="name-field" class="col-lg-2 control-label">Ваше имя</label>
-								<div class="col-lg-4">
-									<input type="text" name="name" class="form-control" id="name-field" value="<?= $name ?>" autocomplete="off" required>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="message-field" class="col-lg-2 control-label">Сообщение</label>
-								<div class="col-lg-4">
-									<textarea class="form-control" id="message-field" name="message" rows="3" required><?php echo htmlspecialchars($message); ?></textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-lg-offset-2 col-lg-4">
-									<button type="submit" class="btn btn-primary">Отправить</button>
-								</div>
-							</div>
+						<h4>Страница смены пароля</h4>
+						<form>
+						  <div class="form-group">
+						    <label for="email">Старый пароль</label>
+						    <input type="password" class="form-control" id="email">
+						  </div>
+						  <div class="form-group">
+						    <label for="password1">Новый пароль</label>
+						    <input type="password" class="form-control" id="password1">
+						  </div>
+						  <div class="form-group">
+						    <label for="password2">Новый пароль еще раз</label>
+						    <input type="password" class="form-control" id="password2">
+						  </div>
+						  <button type="submit" class="btn btn-default">Изменить</button>
 						</form>
 					</div><!-- .well -->
 				</div><!-- .col-md-9 -->
