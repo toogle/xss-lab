@@ -6,7 +6,7 @@ header('X-XSS-Protection: 0');
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Задание №4 / Лабораторная работа №2. XSS</title>
+		<title>Задание №5 / Лабораторная работа №2. XSS</title>
 		<meta name="description" content="XSS Lab">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
