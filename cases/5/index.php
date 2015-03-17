@@ -58,14 +58,29 @@ header('X-XSS-Protection: 0');
 				<div class="col-md-9">
 					<div class="well well-lg">
 						<h4>Настройки профиля</h4>
+
+						<?php
+						// NOTE: The following code intended for demonstration purposes only.
+						//       It is EXTREMELY DANGER to use it for real applications.
+						$login = isset($_GET['login']) ? $_GET['login'] : '';
+						$about = isset($_GET['about']) ? $_GET['about'] : '';
+						?>
+
+						<?php if ($login || $about): ?>
+							<div class="alert alert-success">
+								<button class="close" data-dismiss="alert">&times;</button>
+								Профиль изменен!
+							</div>
+						<?php endif; ?>
+
 						<form method="GET">
 						  	<div class="form-group">
 						    	<label for="login">Логин</label>
-						    	<input type="text" name="login" class="form-control" id="login" required>
+						    	<input type="text" name="login" class="form-control" id="login">
 						  	</div>
 						  	<div class="form-group">
 						    	<label for="about">О себе</label>
-						    	<input type="text" name="about" class="form-control" id="about" required>
+						    	<input type="text" name="about" class="form-control" id="about">
 						  	</div>
 						  	<button type="submit" class="btn btn-default">Изменить</button>
 						</form>
