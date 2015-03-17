@@ -57,21 +57,17 @@ header('X-XSS-Protection: 0');
 
 				<div class="col-md-9">
 					<div class="well well-lg">
-						<h4>Страница смены пароля</h4>
-						<form>
-						  <div class="form-group">
-						    <label for="oldPassword">Старый пароль</label>
-						    <input type="password" class="form-control" id="oldPassword">
-						  </div>
-						  <div class="form-group">
-						    <label for="newPassword1">Новый пароль</label>
-						    <input type="password" class="form-control" id="newPassword1">
-						  </div>
-						  <div class="form-group">
-						    <label for="newPassword2">Новый пароль еще раз</label>
-						    <input type="password" class="form-control" id="newPassword2">
-						  </div>
-						  <button type="submit" class="btn btn-default">Изменить</button>
+						<h4>Настройки профиля</h4>
+						<form method="GET">
+						  	<div class="form-group">
+						    	<label for="login">Логин</label>
+						    	<input type="text" name="login" class="form-control" id="login" required>
+						  	</div>
+						  	<div class="form-group">
+						    	<label for="about">О себе</label>
+						    	<input type="text" name="about" class="form-control" id="about" required>
+						  	</div>
+						  	<button type="submit" class="btn btn-default">Изменить</button>
 						</form>
 					</div><!-- .well -->
 				</div><!-- .col-md-9 -->
