@@ -60,16 +60,16 @@ header('X-XSS-Protection: 0');
 						<h4>Страница смены пароля</h4>
 						<form>
 						  <div class="form-group">
-						    <label for="email">Старый пароль</label>
-						    <input type="password" class="form-control" id="email">
+						    <label for="oldPassword">Старый пароль</label>
+						    <input type="password" class="form-control" id="oldPassword">
 						  </div>
 						  <div class="form-group">
-						    <label for="password1">Новый пароль</label>
-						    <input type="password" class="form-control" id="password1">
+						    <label for="newPassword1">Новый пароль</label>
+						    <input type="password" class="form-control" id="newPassword1">
 						  </div>
 						  <div class="form-group">
-						    <label for="password2">Новый пароль еще раз</label>
-						    <input type="password" class="form-control" id="password2">
+						    <label for="newPassword2">Новый пароль еще раз</label>
+						    <input type="password" class="form-control" id="newPassword2">
 						  </div>
 						  <button type="submit" class="btn btn-default">Изменить</button>
 						</form>
