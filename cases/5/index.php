@@ -76,7 +76,7 @@ header('X-XSS-Protection: 0');
 						<form method="GET">
 						  	<div class="form-group">
 						    	<label for="login">Логин</label>
-						    	<input type="text" name="login" class="form-control" id="login">
+						    	<input type="text" name="login" class="form-control" id="login" value="<?= $login ?>">
 						  	</div>
 						  	<div class="form-group">
 						    	<label for="about">О себе</label>
