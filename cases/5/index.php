@@ -11,6 +11,7 @@ header('X-XSS-Protection: 0');
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/datepicker.css" rel="stylesheet" >
 
 		<style>
 			h4 {
@@ -19,6 +20,10 @@ header('X-XSS-Protection: 0');
 
 			.nav-inner {
 				margin-left: 10px;
+            }
+
+            .form-control {
+                width:50%;
 			}
 		</style>
 
@@ -76,11 +81,11 @@ header('X-XSS-Protection: 0');
 						<?php
 						// NOTE: The following code intended for demonstration purposes only.
 						//       It is EXTREMELY DANGER to use it for real applications.
-						$login = isset($_GET['login']) ? $_GET['login'] : '';
+						$nick = isset($_GET['nick']) ? $_GET['nick'] : '';
 						$about = isset($_GET['about']) ? $_GET['about'] : '';
 						?>
 
-						<?php if ($login || $about): ?>
+						<?php if ($nick || $about): ?>
 							<div class="alert alert-success">
 								<button class="close" data-dismiss="alert">&times;</button>
 								Профиль изменен!
@@ -89,15 +94,45 @@ header('X-XSS-Protection: 0');
 
 						<form method="GET">
 						  	<div class="form-group">
-						    	<label for="login">Логин</label>
-						    	<input type="text" name="login" class="form-control" id="login" value="<?php protectString($login) ?>">
-						  	</div>
+						    	<label for="nick">Никнейм</label>
+						    	<input type="text" name="nick" class="form-control" id="nick" value="<?php protectString($nick) ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="birthday">День рождения</label>
+                                <input type="text" name="birthday" class="form-control" id="birthday">
+                            </div>
+                            <div class="form-group">
+                                <label for="sex">Пол</label>
+                                <div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio" checked>
+                                        Мужской
+                                      </label>
+                                    </div>
+                                    <div class="radio">
+                                      <label>
+                                        <input type="radio">
+                                        Женский
+                                      </label>
+                                    </div>    
+                                </div>  
+                            </div>       
+                            <div class="form-group">
+                                <label for="country">Страна</label>
+                                <input type="text" name="country" class="form-control" id="country">
+                            </div>                                                  
+                            <div class="form-group">
+                                <label for="city">Город</label>
+                                <input type="text" name="city" class="form-control" id="city">
+						  	</div>     
 						  	<div class="form-group">
 						    	<label for="about">О себе</label>
-						    	<input type="text" name="about" class="form-control" id="about">
-						  	</div>
+						    	<textarea class="form-control" rows="3" name="about" class="form-control" id="about"></textarea>
+						  	</div>                         
 						  	<button type="submit" class="btn btn-default">Изменить</button>
 						</form>
+
 					</div><!-- .well -->
 				</div><!-- .col-md-9 -->
 			</div><!-- .row -->
@@ -105,5 +140,18 @@ header('X-XSS-Protection: 0');
 
 		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
 		<script src="../../js/lib/bootstrap.min.js"></script>
+        <script src="../../js/lib/bootstrap-datepicker.js"></script>
+        <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                
+                $('#birthday').datepicker({
+                    format: "dd/mm/yyyy"
+                });  
+            
+            });
+        </script>
+
+
 	</body>
 </html>
