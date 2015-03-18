@@ -81,11 +81,15 @@ header('X-XSS-Protection: 0');
 						<?php
 						// NOTE: The following code intended for demonstration purposes only.
 						//       It is EXTREMELY DANGER to use it for real applications.
-						$nick = isset($_GET['nick']) ? $_GET['nick'] : '';
+						$nick = isset($_GET['nick']) ? $_GET['nick'] : 'xss-hacker';
+                        $birthday = isset($_GET['birthday']) ? $_GET['birthday'] : '30/10/1988';
+                        $sex = isset($_GET['sex']) ? $_GET['sex'] : 'male';
+                        $country = isset($_GET['country']) ? $_GET['country'] : 'Россия';
+                        $city = isset($_GET['city']) ? $_GET['city'] : 'Москва';
 						$about = isset($_GET['about']) ? $_GET['about'] : '';
 						?>
 
-						<?php if ($nick || $about): ?>
+						<?php if ($nick || $birthday || $sex || $country || $city || $about): ?>
 							<div class="alert alert-success">
 								<button class="close" data-dismiss="alert">&times;</button>
 								Профиль изменен!
@@ -99,20 +103,20 @@ header('X-XSS-Protection: 0');
                             </div>
                             <div class="form-group">
                                 <label for="birthday">День рождения</label>
-                                <input type="text" name="birthday" class="form-control" id="birthday">
+                                <input type="text" name="birthday" class="form-control" id="birthday" value="<?php protectString($birthday) ?>">
                             </div>
                             <div class="form-group">
                                 <label for="sex">Пол</label>
                                 <div>
                                     <div class="radio">
                                       <label>
-                                        <input type="radio" checked>
+                                        <input type="radio" name="sex" value="male" checked>
                                         Мужской
                                       </label>
                                     </div>
                                     <div class="radio">
                                       <label>
-                                        <input type="radio">
+                                        <input type="radio" name="sex" value="female">
                                         Женский
                                       </label>
                                     </div>    
@@ -120,15 +124,15 @@ header('X-XSS-Protection: 0');
                             </div>       
                             <div class="form-group">
                                 <label for="country">Страна</label>
-                                <input type="text" name="country" class="form-control" id="country">
+                                <input type="text" name="country" class="form-control" id="country" value="<?php protectString($country) ?>">
                             </div>                                                  
                             <div class="form-group">
                                 <label for="city">Город</label>
-                                <input type="text" name="city" class="form-control" id="city">
+                                <input type="text" name="city" class="form-control" id="city" value="<?php protectString($city) ?>">
 						  	</div>     
 						  	<div class="form-group">
 						    	<label for="about">О себе</label>
-						    	<textarea class="form-control" rows="3" name="about" class="form-control" id="about"></textarea>
+						    	<textarea class="form-control" rows="3" name="about" class="form-control" id="about" value="<?php protectString($about) ?>"></textarea>
 						  	</div>                         
 						  	<button type="submit" class="btn btn-default">Изменить</button>
 						</form>
