@@ -60,7 +60,7 @@ header('X-XSS-Protection: 0');
 						<h4>Настройки профиля</h4>
 
 						<?php
-						function SecureString($message) 
+						function protectString($message) 
 						{
 							if (strpos($message, "'") !== FALSE)
 							{
@@ -90,7 +90,7 @@ header('X-XSS-Protection: 0');
 						<form method="GET">
 						  	<div class="form-group">
 						    	<label for="login">Логин</label>
-						    	<input type="text" name="login" class="form-control" id="login" value="<?php SecureString($login) ?>">
+						    	<input type="text" name="login" class="form-control" id="login" value="<?php protectString($login) ?>">
 						  	</div>
 						  	<div class="form-group">
 						    	<label for="about">О себе</label>
