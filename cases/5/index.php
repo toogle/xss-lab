@@ -60,6 +60,20 @@ header('X-XSS-Protection: 0');
 						<h4>Настройки профиля</h4>
 
 						<?php
+						function SecureString($message) 
+						{
+							if (strpos($message, "'") !== FALSE)
+							{
+							    echo 'Found it';
+							}
+							else
+							{
+								echo $message;
+							}
+						}
+						?>
+
+						<?php
 						// NOTE: The following code intended for demonstration purposes only.
 						//       It is EXTREMELY DANGER to use it for real applications.
 						$login = isset($_GET['login']) ? $_GET['login'] : '';
@@ -76,7 +90,7 @@ header('X-XSS-Protection: 0');
 						<form method="GET">
 						  	<div class="form-group">
 						    	<label for="login">Логин</label>
-						    	<input type="text" name="login" class="form-control" id="login" value="<?= $login ?>">
+						    	<input type="text" name="login" class="form-control" id="login" value="<?php SecureString($login) ?>">
 						  	</div>
 						  	<div class="form-group">
 						    	<label for="about">О себе</label>
