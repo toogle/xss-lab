@@ -72,7 +72,7 @@ header('X-XSS-Protection: 0');
                     <div class="well well-lg">
                         <h4>Настройки профиля</h4>
 
-                        <form method="POST" onsubmit="validate()">
+                        <form method="GET" onsubmit="validate()">
                             <div class="form-group">
                                 <label for="nick">Никнейм</label>
                                 <input type="text" name="nick" class="form-control" id="nick" value="<?= $nick ?>">
