@@ -60,6 +60,14 @@ header('X-XSS-Protection: 0');
                     </ul>
                 </div><!-- .col-md-3 -->
 
+                <?php
+                    $nick = $_COOKIE['nick'];
+                    $birthday = $_COOKIE['birthday'];
+                    $country = $_COOKIE['country'];
+                    $city = $_COOKIE['city'];
+                    $about = $_COOKIE['about'];
+                ?>
+
                 <div class="col-md-9">
                     <div class="well well-lg">
                         <h4>Настройки профиля</h4>
@@ -67,11 +75,11 @@ header('X-XSS-Protection: 0');
                         <form method="POST" onsubmit="validate()">
                             <div class="form-group">
                                 <label for="nick">Никнейм</label>
-                                <input type="text" name="nick" class="form-control" id="nick">
+                                <input type="text" name="nick" class="form-control" id="nick" value="<?= $nick ?>">
                             </div>
                             <div class="form-group">
                                 <label for="birthday">День рождения</label>
-                                <input type="text" name="birthday" class="form-control" id="birthday">
+                                <input type="text" name="birthday" class="form-control" id="birthday" value="<?= $birthday ?>">
                             </div>
                             <div class="form-group">
                                 <label for="sex">Пол</label>
@@ -92,15 +100,15 @@ header('X-XSS-Protection: 0');
                             </div>       
                             <div class="form-group">
                                 <label for="country">Страна</label>
-                                <input type="text" name="country" class="form-control" id="country">
+                                <input type="text" name="country" class="form-control" id="country" value="<?= $country ?>">
                             </div>                                                  
                             <div class="form-group">
                                 <label for="city">Город</label>
-                                <input type="text" name="city" class="form-control" id="city">
+                                <input type="text" name="city" class="form-control" id="city" value="<?= $city ?>">
                             </div>     
                             <div class="form-group">
                                 <label for="about">О себе</label>
-                                <textarea class="form-control" rows="3" name="about" class="form-control" id="about"></textarea>
+                                <textarea class="form-control" rows="3" name="about" class="form-control" id="about" value="<?= $about ?>"></textarea>
                             </div>                         
                             <button type="submit" class="btn btn-default">Изменить</button>
                         </form>
