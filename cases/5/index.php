@@ -61,6 +61,19 @@ header('X-XSS-Protection: 0');
                 </div><!-- .col-md-3 -->
 
                 <?php
+                    function validate($input)
+                    {
+                        $output = $input;
+
+                        if (strpos($output, "//") !== FALSE)
+                        {
+                            $output = str_replace("//", "", $output); 
+                            $output = str_replace("http:", "", $output);
+                        }
+
+                        return $output;
+                    }
+
                     $nick = isset($_GET['nick']) ? $_GET['nick'] : 'xss-hacker';
                     $birthday = isset($_GET['birthday']) ? $_GET['birthday'] : '30/11/1988';
                     $country = isset($_GET['country']) ? $_GET['country'] : 'Россия';
@@ -75,11 +88,11 @@ header('X-XSS-Protection: 0');
                         <form id="profile" method="GET" onsubmit="validate()">
                             <div class="form-group">
                                 <label for="nick">Никнейм</label>
-                                <input type="text" name="nick" class="form-control" id="nick" value="<?= $nick ?>" onchange="add('nick')">
+                                <input type="text" name="nick" class="form-control" id="nick" value="<?= validate($nick) ?>" onchange="add('nick')">
                             </div>
                             <div class="form-group">
                                 <label for="birthday">День рождения</label>
-                                <input type="text" name="birthday" class="form-control" id="birthday" value="<?= $birthday ?>" onchange="add('birthday')">
+                                <input type="text" name="birthday" class="form-control" id="birthday" value="<?= validate($birthday) ?>" onchange="add('birthday')">
                             </div>
                             <div class="form-group">
                                 <label for="sex">Пол</label>
@@ -100,15 +113,15 @@ header('X-XSS-Protection: 0');
                             </div>       
                             <div class="form-group">
                                 <label for="country">Страна</label>
-                                <input type="text" name="country" class="form-control" id="country" value="<?= $country ?>" onchange="add('country')">
+                                <input type="text" name="country" class="form-control" id="country" value="<?= validate($country) ?>" onchange="add('country')">
                             </div>                                                  
                             <div class="form-group">
                                 <label for="city">Город</label>
-                                <input type="text" name="city" class="form-control" id="city" value="<?= $city ?>" onchange="add('city')">
+                                <input type="text" name="city" class="form-control" id="city" value="<?= validate($city) ?>" onchange="add('city')">
                             </div>     
                             <div class="form-group">
                                 <label for="about">О себе</label>
-                                <textarea class="form-control" rows="3" name="about" class="form-control" id="about" value="<?= $about ?>" onchange="add('about')"></textarea>
+                                <textarea class="form-control" rows="3" name="about" class="form-control" id="about" value="<?= validate($about) ?>" onchange="add('about')"></textarea>
                             </div>                         
                             <button type="submit" class="btn btn-default">Изменить</button>
                         </form>
