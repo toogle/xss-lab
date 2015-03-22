@@ -61,11 +61,11 @@ header('X-XSS-Protection: 0');
                 </div><!-- .col-md-3 -->
 
                 <?php
-                    $nick = $_COOKIE['nick'];
-                    $birthday = $_COOKIE['birthday'];
-                    $country = $_COOKIE['country'];
-                    $city = $_COOKIE['city'];
-                    $about = $_COOKIE['about'];
+                    $nick = isset($_GET['nick']) ? $_GET['nick'] : 'xss-hacker';
+                    $birthday = isset($_GET['birthday']) ? $_GET['birthday'] : '30/11/1988';
+                    $country = isset($_GET['country']) ? $_GET['country'] : 'Россия';
+                    $city = isset($_GET['city']) ? $_GET['city'] : 'Москва';
+                    $about = isset($_GET['about']) ? $_GET['about'] : '';
                 ?>
 
                 <div class="col-md-9">
@@ -124,21 +124,6 @@ header('X-XSS-Protection: 0');
         
         <script type="text/javascript">
 
-        function createCookie(name,value,days) {
-            document.cookie = name+"="+value+"; path=/";
-        }
-
-        function readCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0;i < ca.length;i++) {
-                var c = ca[i];
-                while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-            }
-            return null;
-        }
-
         tosubmit = []
 
         function add(name) 
@@ -159,13 +144,6 @@ header('X-XSS-Protection: 0');
 
         function validate()
         {
-            document.cookie = createCookie('nick', document.getElementById('nick').value);
-            document.cookie = createCookie('birthday', document.getElementById('birthday').value);
-            document.cookie = createCookie('country', document.getElementById('country').value);
-            document.cookie = createCookie('city', document.getElementById('city').value);
-            document.cookie = createCookie('about', document.getElementById('about').value);
-
-
             var allElements = document.getElementById("profile").elements;
             
             for(var k = 0; k < allElements.length; k++) 
@@ -175,12 +153,6 @@ header('X-XSS-Protection: 0');
                 allElements[k].disabled = true;
             }
         }
-
-        document.getElementById('nick').value = readCookie('nick') ? readCookie('nick') : 'xss-hacker';   
-        document.getElementById('birthday').value = readCookie('birthday') ? readCookie('birthday') : '30/11/1988';
-        document.getElementById('country').value = readCookie('country') ? readCookie('country') : 'Россия';
-        document.getElementById('city').value = readCookie('city') ? readCookie('city') : 'Москва';
-        document.getElementById('about').value = readCookie('about') ? readCookie('about') : '';
 
         // When the document is ready
         $(document).ready(function () {
