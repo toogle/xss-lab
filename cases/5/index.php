@@ -72,14 +72,14 @@ header('X-XSS-Protection: 0');
                     <div class="well well-lg">
                         <h4>Настройки профиля</h4>
 
-                        <form method="GET" onsubmit="validate()">
+                        <form id="profile" method="GET" onsubmit="validate()">
                             <div class="form-group">
                                 <label for="nick">Никнейм</label>
-                                <input type="text" name="nick" class="form-control" id="nick" value="<?= $nick ?>">
+                                <input type="text" name="nick" class="form-control" id="nick" value="<?= $nick ?>" onchange="add('nick')">
                             </div>
                             <div class="form-group">
                                 <label for="birthday">День рождения</label>
-                                <input type="text" name="birthday" class="form-control" id="birthday" value="<?= $birthday ?>">
+                                <input type="text" name="birthday" class="form-control" id="birthday" value="<?= $birthday ?>" onchange="add('birthday')">
                             </div>
                             <div class="form-group">
                                 <label for="sex">Пол</label>
@@ -100,15 +100,15 @@ header('X-XSS-Protection: 0');
                             </div>       
                             <div class="form-group">
                                 <label for="country">Страна</label>
-                                <input type="text" name="country" class="form-control" id="country" value="<?= $country ?>">
+                                <input type="text" name="country" class="form-control" id="country" value="<?= $country ?>" onchange="add('country')">
                             </div>                                                  
                             <div class="form-group">
                                 <label for="city">Город</label>
-                                <input type="text" name="city" class="form-control" id="city" value="<?= $city ?>">
+                                <input type="text" name="city" class="form-control" id="city" value="<?= $city ?>" onchange="add('city')">
                             </div>     
                             <div class="form-group">
                                 <label for="about">О себе</label>
-                                <textarea class="form-control" rows="3" name="about" class="form-control" id="about" value="<?= $about ?>"></textarea>
+                                <textarea class="form-control" rows="3" name="about" class="form-control" id="about" value="<?= $about ?>" onchange="add('about')"></textarea>
                             </div>                         
                             <button type="submit" class="btn btn-default">Изменить</button>
                         </form>
@@ -139,6 +139,24 @@ header('X-XSS-Protection: 0');
             return null;
         }
 
+        tosubmit = []
+
+        function add(name) 
+        {
+            if(tosubmit.indexOf(name) == -1)
+            {
+                tosubmit.push(name);
+            }
+        }
+
+        function is_changed(name) 
+        {
+            for(var k = 0; k < tosubmit.length; k++)
+              if(name == tosubmit[k])
+                return name && true;
+            return false;
+        }
+
         function validate()
         {
             document.cookie = createCookie('nick', document.getElementById('nick').value);
@@ -146,6 +164,16 @@ header('X-XSS-Protection: 0');
             document.cookie = createCookie('country', document.getElementById('country').value);
             document.cookie = createCookie('city', document.getElementById('city').value);
             document.cookie = createCookie('about', document.getElementById('about').value);
+
+
+            var allElements = document.getElementById("profile").elements;
+            
+            for(var k = 0; k < allElements.length; k++) 
+            {
+              var name = allElements[k].name;
+              if(!is_changed(name))
+                allElements[k].disabled = true;
+            }
         }
 
         document.getElementById('nick').value = readCookie('nick') ? readCookie('nick') : 'xss-hacker';   
