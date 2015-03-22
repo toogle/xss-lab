@@ -116,21 +116,35 @@ header('X-XSS-Protection: 0');
         
         <script type="text/javascript">
 
-        document.getElementById('nick').value = sessionStorage['nick'] ? sessionStorage['nick'] : 'xss-hacker';
-        document.getElementById('birthday').value = sessionStorage['birthday'] ? sessionStorage['birthday'] : '30/11/1988';
-        document.getElementById('country').value = sessionStorage['country'] ? sessionStorage['country'] : 'Россия';
-        document.getElementById('city').value = sessionStorage['city'] ? sessionStorage['city'] : 'Москва';
-        document.getElementById('about').value = sessionStorage['about'] ? sessionStorage['about'] : '';
+        function createCookie(name,value,days) {
+            document.cookie = name+"="+value+"; path=/";
+        }
 
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
 
         function validate()
         {
-            sessionStorage['nick'] = document.getElementById('nick').value;
-            sessionStorage['birthday'] = document.getElementById('birthday').value;
-            sessionStorage['country'] = document.getElementById('country').value;
-            sessionStorage['city'] = document.getElementById('city').value;
-            sessionStorage['about'] = document.getElementById('about').value;
+            document.cookie = createCookie('nick', document.getElementById('nick').value);
+            document.cookie = createCookie('birthday', document.getElementById('birthday').value);
+            document.cookie = createCookie('country', document.getElementById('country').value);
+            document.cookie = createCookie('city', document.getElementById('city').value);
+            document.cookie = createCookie('about', document.getElementById('about').value);
         }
+
+        document.getElementById('nick').value = readCookie('nick') ? readCookie('nick') : 'xss-hacker';   
+        document.getElementById('birthday').value = readCookie('birthday') ? readCookie('birthday') : '30/11/1988';
+        document.getElementById('country').value = readCookie('country') ? readCookie('country') : 'Россия';
+        document.getElementById('city').value = readCookie('city') ? readCookie('city') : 'Москва';
+        document.getElementById('about').value = readCookie('about') ? readCookie('about') : '';
 
         // When the document is ready
         $(document).ready(function () {
