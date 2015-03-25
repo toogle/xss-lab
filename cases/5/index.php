@@ -125,8 +125,46 @@ header('X-XSS-Protection: 0');
                             </div>                         
                             <button type="submit" class="btn btn-default">Изменить</button>
                         </form>
-
                     </div><!-- .well -->
+
+                    <div class="panel panel-default">
+						<div class="panel-heading">
+							Подсказка
+							<a href="#" class="pull-right" data-toggle="collapse" data-target="#hint">показать</a>
+						</div>
+						<div id="hint" class="panel-body collapse">
+							<p>
+								XSS зачастую используется для атак типа <font color="gray">URL Redirection</font>. 
+								Цель злоумышленника - сформировать и отправить пользователю ссылку, 
+								в начале которой будет адрес подлинного веб-ресурса, 
+								а дальше - код, перенаправляющий на страницу злоумышленника.
+
+								Например: 
+								<pre>http://www.well-known-site.com/?q=&lt;script&gt;document.location='http://very-bad-site.com'&lt;/script&gt;</pre>
+								
+								На месте <font color="blue">"http://very-bad-site"</font> 
+								может быть некий рекламный ресурс или 
+								phishing-сайт (<font color="blue">"http://well-kn0wn-site.com"</font>) 
+								для кражи пользовательских данных. 
+								
+								Если в ссылку добавить "мусора", даже грамотный пользователь, 
+								взглянув на нее, может не увидеть подвох. 
+							</p>
+
+							<p>
+								Разработчик данного сайта был в курсе таких атак, однако вместо готовых 
+								и проверенных решений реализовал свою собственную защиту, вырезающую из 
+								пользовательского ввода символы, символизирующие URL-адрес. 
+								Для обхода таких ограничений можно использовать методы объекта String, 
+								например <a href="http://www.w3schools.com/jsref/jsref_fromcharcode.asp">String.fromCharCode()</a>.
+							</p>
+
+							<p>
+								Попробуйте сформировать ссылку, перенаправляющую пользователя на 
+								<a href="http://ya.ru">ya.ru</a>.
+							</p>
+						</div>
+					</div>
                 </div><!-- .col-md-9 -->
             </div><!-- .row -->
         </div><!-- .container -->
