@@ -85,7 +85,7 @@ header('X-XSS-Protection: 0');
                     <div class="well well-lg">
                         <h4>Настройки профиля</h4>
 
-                        <form id="profile" method="GET" onsubmit="validate()">
+                        <form id="profile" method="GET" onsubmit="prepare()">
                             <div class="form-group">
                                 <label for="nick">Никнейм</label>
                                 <input type="text" name="nick" class="form-control" id="nick" value="<?= validate($nick) ?>" onchange="add('nick')">
@@ -155,7 +155,7 @@ header('X-XSS-Protection: 0');
             return false;
         }
 
-        function validate()
+        function prepare()
         {
             var allElements = document.getElementById("profile").elements;
             
