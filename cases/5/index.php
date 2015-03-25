@@ -74,6 +74,14 @@ header('X-XSS-Protection: 0');
                         return $output;
                     }
 
+                    $randomSite = $_COOKIE['randomSite'];
+                	if (empty($randomSite))
+                	{
+                		$sites = file("sites-list.txt");
+                    	$randomSite = $sites[array_rand($sites)];
+                    	setcookie('randomSite', $randomSite);	
+                	}        
+
                     $nick = isset($_GET['nick']) ? $_GET['nick'] : 'xss-hacker';
                     $birthday = isset($_GET['birthday']) ? $_GET['birthday'] : '30/11/1988';
                     $country = isset($_GET['country']) ? $_GET['country'] : 'Россия';
@@ -160,8 +168,8 @@ header('X-XSS-Protection: 0');
 							</p>
 
 							<p>
-								Попробуйте сформировать ссылку, перенаправляющую пользователя на 
-								<a href="http://ya.ru">ya.ru</a>.
+								Попробуйте сформировать ссылку, перенаправляющую пользователя на
+								<font color='blue'><?= $randomSite ?></font>.
 							</p>
 						</div>
 					</div>
