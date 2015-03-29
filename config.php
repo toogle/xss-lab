@@ -10,5 +10,5 @@ define('MYSQL_DATABASE', 'xss-lab');
 /*
  * Media delivery settings.
  */
-define('MEDIA_URL', '//localhost/xss');  // without a trailing slash!
+define('MEDIA_URL', '//localhost');  // without a trailing slash!
 ?>
