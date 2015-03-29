@@ -61,6 +61,8 @@ header('X-XSS-Protection: 0');
                 </div><!-- .col-md-3 -->
 
                 <?php
+                    // NOTE: The following code intended for demonstration purposes only.
+                    //       It is EXTREMELY DANGER to use it for real applications.
                     function validate($input)
                     {
                         $output = $input;
