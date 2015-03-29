@@ -181,7 +181,7 @@ header('X-XSS-Protection: 0');
             </div><!-- .row -->
         </div><!-- .container -->
 
-        <script src="<?php echo MEDIA_URL; ?>js/lib/jquery-1.11.1.min.js"></script>
+        <script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
         <script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
         <script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap-datepicker.js"></script>
         
