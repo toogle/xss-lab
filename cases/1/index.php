@@ -1,4 +1,6 @@
 <?php
+require_once('../../config.php');
+
 header('X-XSS-Protection: 0');
 ?>
 <!DOCTYPE html>
@@ -10,7 +12,7 @@ header('X-XSS-Protection: 0');
 		<meta name="description" content="XSS Lab">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo MEDIA_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
 
 		<style>
 			.nav-inner {
@@ -23,7 +25,7 @@ header('X-XSS-Protection: 0');
 		</style>
 
 		<!--[if lt IE 9]>
-			<script src="../../js/lib/respond.min.js"></script>
+			<script src="<?php echo MEDIA_URL; ?>/js/lib/respond.min.js"></script>
 		<![endif]-->
 	</head>
 	<body>
@@ -40,7 +42,7 @@ header('X-XSS-Protection: 0');
 				<div class="col-md-3">
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="../../">Главная</a></li>
-						<li><a href="../../documentation.html">Методическое пособие</a></li>
+						<li><a href="../../documentation.php">Методическое пособие</a></li>
 						<li>
 							<a href="#">Рабочее задание</a>
 							<ul class="nav nav-pills nav-stacked nav-inner">
@@ -75,10 +77,7 @@ header('X-XSS-Protection: 0');
 
 						// NOTE: The following code intended for demonstration purposes only.
 						//       It is EXTREMELY DANGER to use it for real applications.
-						$conn = mysqli_connect('localhost', 'xss-lab', 'xss-lab', 'xss-lab');
-						mysqli_query($conn, "SET NAMES utf8");
-						mysqli_query($conn, "SET CHARACTER SET utf8");
-						mysqli_set_charset($conn, 'utf8');
+						$conn = @mysqli_connect(MYSQL_HOST, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
 
 						$query = isset($_GET['q']) ? mysqli_real_escape_string($conn, $_GET['q']) : '';
 						if (isset($_GET['q']))

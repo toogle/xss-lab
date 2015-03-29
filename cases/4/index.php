@@ -1,4 +1,6 @@
 <?php
+require_once('../../config.php');
+
 header('X-XSS-Protection: 0');
 ?>
 <!DOCTYPE html>
@@ -10,7 +12,7 @@ header('X-XSS-Protection: 0');
 		<meta name="description" content="XSS Lab">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo MEDIA_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
 
 		<style>
 			h4 {
@@ -23,7 +25,7 @@ header('X-XSS-Protection: 0');
 		</style>
 
 		<!--[if lt IE 9]>
-			<script src="../../js/lib/respond.min.js"></script>
+			<script src="<?php echo MEDIA_URL; ?>/js/lib/respond.min.js"></script>
 		<![endif]-->
 	</head>
 	<body>
@@ -40,7 +42,7 @@ header('X-XSS-Protection: 0');
 				<div class="col-md-3">
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="../../">Главная</a></li>
-						<li><a href="../../documentation.html">Методическое пособие</a></li>
+						<li><a href="../../documentation.php">Методическое пособие</a></li>
 						<li>
 							<a href="#">Рабочее задание</a>
 							<ul class="nav nav-pills nav-stacked nav-inner">
@@ -109,7 +111,7 @@ header('X-XSS-Protection: 0');
 			</div><!-- .row -->
 		</div><!-- .container -->
 
-		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
-		<script src="../../js/lib/bootstrap.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
 	</body>
 </html>

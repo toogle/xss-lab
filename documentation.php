@@ -1,3 +1,4 @@
+<?php require_once('config.php'); ?>
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -7,7 +8,7 @@
 		<meta name="description" content="XSS Lab">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo MEDIA_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
 
 		<style>
 			h4 {
@@ -34,7 +35,7 @@
 		</style>
 
 		<!--[if lt IE 9]>
-			<script src="js/lib/respond.min.js"></script>
+			<script src="<?php echo MEDIA_URL; ?>/js/lib/respond.min.js"></script>
 		<![endif]-->
 	</head>
 	<body>
@@ -155,7 +156,7 @@
 						<p>
 							Типовой сценарий реализации отражённой XSS представлен на рисунке.
 
-							<img src="img/reflected-xss.png" class="img-responsive">
+							<img src="<?php echo MEDIA_URL; ?>/img/reflected-xss.png" class="img-responsive">
 
 							<ol>
 								<li>
@@ -192,7 +193,7 @@
 						<p>
 							Типовой сценарий реализации устойчивой XSS представлен на рисунке.
 
-							<img src="img/persistent-xss.png" class="img-responsive">
+							<img src="<?php echo MEDIA_URL; ?>/img/persistent-xss.png" class="img-responsive">
 
 							<ol>
 								<li>
@@ -225,7 +226,7 @@
 							Типовой сценарий реализации XSS, основанной на объектной модели документа, представлен на
 							рисунке.
 
-							<img src="img/dom-based-xss.png" class="img-responsive">
+							<img src="<?php echo MEDIA_URL; ?>/img/dom-based-xss.png" class="img-responsive">
 
 							<ol>
 								<li>
@@ -301,7 +302,7 @@
 			</div><!-- .row -->
 		</div><!-- .container -->
 
-		<script src="js/lib/jquery-1.11.1.min.js"></script>
-		<script src="js/lib/bootstrap.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
 	</body>
 </html>

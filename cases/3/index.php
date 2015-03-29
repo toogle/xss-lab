@@ -1,3 +1,4 @@
+<?php require_once('../../config.php'); ?>
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -7,7 +8,7 @@
 		<meta name="description" content="XSS Lab">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo MEDIA_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
 
 		<style>
 			.nav-inner {
@@ -23,7 +24,7 @@
 		</style>
 
 		<!--[if lt IE 9]>
-			<script src="../../js/lib/respond.min.js"></script>
+			<script src="<?php echo MEDIA_URL; ?>/js/lib/respond.min.js"></script>
 		<![endif]-->
 	</head>
 	<body>
@@ -40,7 +41,7 @@
 				<div class="col-md-3">
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="../../">Главная</a></li>
-						<li><a href="../../documentation.html">Методическое пособие</a></li>
+						<li><a href="../../documentation.php">Методическое пособие</a></li>
 						<li>
 							<a href="#">Рабочее задание</a>
 							<ul class="nav nav-pills nav-stacked nav-inner">
@@ -57,21 +58,21 @@
 
 				<div class="col-md-9">
 					<div class="well well-lg">
-						<img src="img/google.jpg" class="img-responsive" id="main-image">
+						<img src="<?php echo MEDIA_URL; ?>/cases/3/img/google.jpg" class="img-responsive" id="main-image">
 						<h4 id="main-name">google</h4>
 						<hr>
 
-						<a href="#google"><img src="img/google.jpg" class="img-thumbnail"></a>
-						<a href="#ibm"><img src="img/ibm.jpg" class="img-thumbnail"></a>
-						<a href="#paypal"><img src="img/paypal.jpg" class="img-thumbnail"></a>
-						<a href="#pingfm"><img src="img/pingfm.jpg" class="img-thumbnail"></a>
-						<a href="#yahoo"><img src="img/yahoo.jpg" class="img-thumbnail"></a>
+						<a href="#google"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/google.jpg" class="img-thumbnail"></a>
+						<a href="#ibm"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/ibm.jpg" class="img-thumbnail"></a>
+						<a href="#paypal"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/paypal.jpg" class="img-thumbnail"></a>
+						<a href="#pingfm"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/pingfm.jpg" class="img-thumbnail"></a>
+						<a href="#yahoo"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/yahoo.jpg" class="img-thumbnail"></a>
 					</div><!-- .well -->
 				</div><!-- .col-md-9 -->
 			</div><!-- .row -->
 		</div><!-- .container -->
 
-		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
 		<script>
 			$(function() {
 				$(window).bind('hashchange', function() {
@@ -80,7 +81,7 @@
 					var name = location.hash.slice(1);
 
 					$('#main-name').html(name);
-					$('#main-image').attr('src', 'img/' + name + '.jpg');
+					$('#main-image').attr('src', '<?php echo MEDIA_URL; ?>/cases/3/img/' + name + '.jpg');
 				});
 			});
 		</script>
