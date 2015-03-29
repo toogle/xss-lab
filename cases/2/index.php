@@ -1,30 +1,15 @@
 <?php
-define('SECRET', 's3cr3t');
+require_once('../../config.php');
 
-function generate_uid($client_id) {
-	$hash = md5(SECRET . $client_id);  // generate "secret" hash for the given ID
-	$part = substr($hash, 12, 4);  // take 2 bytes from the middle of the hash
-	$uid = intval($part, 16);  // and convert them to an integer
+if (isset($_COOKIE['__uid'])) {
+	$uid = intval($_COOKIE['__uid']);
+} else {
+	$uid = rand();
 
-	return $uid;
+	setcookie('__uid', $uid);  // save the uid in a cookie
 }
 
-if (!isset($_GET['uid'])) {
-	$host = $_SERVER['HTTP_HOST'];
-	$path = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-	$uid = generate_uid($_SERVER['REMOTE_ADDR']);
-
-	header("Location: http://${host}${path}/?uid=${uid}");
-
-	exit;
-}
-
-$uid = intval($_GET['uid']);
-
-$conn = mysqli_connect('localhost', 'xss-lab', 'xss-lab', 'xss-lab');
-mysqli_query($conn, "SET NAMES utf8");
-mysqli_query($conn, "SET CHARACTER SET utf8");
-mysqli_set_charset($conn, 'utf8');
+$conn = @mysqli_connect(MYSQL_HOST, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
 
 if (isset($_GET['id'])) {
 	$id = intval($_GET['id']);
@@ -55,7 +40,7 @@ if (isset($_GET['id'])) {
 		<meta name="description" content="XSS Lab">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo MEDIA_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
 
 		<style>
 			.nav-inner {
@@ -68,7 +53,7 @@ if (isset($_GET['id'])) {
 		</style>
 
 		<!--[if lt IE 9]>
-			<script src="../../js/lib/respond.min.js"></script>
+			<script src="<?php echo MEDIA_URL; ?>/js/lib/respond.min.js"></script>
 		<![endif]-->
 	</head>
 	<body>
@@ -85,7 +70,7 @@ if (isset($_GET['id'])) {
 				<div class="col-md-3">
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="../../">Главная</a></li>
-						<li><a href="../../documentation.html">Методическое пособие</a></li>
+						<li><a href="../../documentation.php">Методическое пособие</a></li>
 						<li>
 							<a href="#">Рабочее задание</a>
 							<ul class="nav nav-pills nav-stacked nav-inner">
@@ -118,12 +103,7 @@ if (isset($_GET['id'])) {
 							       "  VALUES (${uid}, '${title}', '${text}')";
 
 							$res = mysqli_query($conn, $sql);
-							if ($res) {
-								echo '<div class="alert alert-success">',
-								     '  <button type="button" class="close" data-dismiss="alert">&times;</button>',
-								     '  Запись успешно добавлена!',
-								     '</div>';
-							} else {
+							if (!$res) {
 								echo '<div class="alert alert-danger">',
 								     '  <button type="button" class="close" data-dismiss="alert">&times;</button>',
 								     '  Произошла ошибка при добавлении записи!',
@@ -136,12 +116,7 @@ if (isset($_GET['id'])) {
 							       "  WHERE uid = ${uid} AND id = ${id}";
 
 							$res = mysqli_query($conn, $sql);
-							if ($res) {
-								echo '<div class="alert alert-success">',
-								     '  <button type="button" class="close" data-dismiss="alert">&times;</button>',
-								     '  Запись успешно удалена!',
-								     '</div>';
-							} else {
+							if (!$res) {
 								echo '<div class="alert alert-danger">',
 								     '  <button type="button" class="close" data-dismiss="alert">&times;</button>',
 								     '  Произошла ошибка при удалении записи!',
@@ -167,10 +142,10 @@ if (isset($_GET['id'])) {
 
 								mysqli_free_result($res);
 
-								echo '<form action="?uid=' . $uid . '" method="POST" role="form">',
+								echo '<form action="." method="POST" role="form">',
 								     '  <input type="hidden" name="id" value="' . $id . '">',
 								     '  <input type="hidden" name="action" value="delete">',
-								     '  <a href="?uid=' . $uid . '" class="btn btn-default">Назад</a>',
+								     '  <a href="." class="btn btn-default">Назад</a>',
 								     '  <button type="submit" class="btn btn-danger">Удалить</button>',
 								     '</form>';
 							}
@@ -184,7 +159,7 @@ if (isset($_GET['id'])) {
 								if (mysqli_num_rows($res) > 0) {
 									while ($row = mysqli_fetch_assoc($res)) {
 										echo '<div class="post">',
-										     '  <a href="?uid=' . $uid . '&id=' . $row['id'] . '"',
+										     '  <a href="?id=' . $row['id'] . '"',
 											 '    <h4>' . htmlspecialchars($row['title']) . '</h4>',
 										     '  </a>',
 										     '  <p>' . htmlspecialchars($row['text']) . '</p>',
@@ -239,7 +214,7 @@ if (isset($_GET['id'])) {
 			</div><!-- .modal -->
 		</div><!-- .container -->
 
-		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
-		<script src="../../js/lib/bootstrap.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
 	</body>
 </html>
