@@ -78,6 +78,7 @@ if (isset($_GET['id'])) {
 								<li class="active"><a href=".">Задание №2</a></li>
 								<li><a href="../3/">Задание №3</a></li>
 								<li><a href="../4/">Задание №4</a></li>
+								<li><a href="../6/">Задание №6</a></li>
 							</ul>
 						</li>
 						<li><a href="https://github.com/toogle/xss-lab" target="_blank">Исходный код</a></li>

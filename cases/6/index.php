@@ -47,43 +47,17 @@
 							<ul class="nav nav-pills nav-stacked nav-inner">
 								<li><a href="../1/">Задание №1</a></li>
 								<li><a href="../2/">Задание №2</a></li>
-								<li class="active"><a href=".">Задание №3</a></li>
+								<li><a href="../3/">Задание №3</a></li>
 								<li><a href="../4/">Задание №4</a></li>
-								<li><a href="../6/">Задание №6</a></li>
+								<li class="active"><a href=".">Задание №6</a></li>
 							</ul>
 						</li>
 						<li><a href="https://github.com/toogle/xss-lab" target="_blank">Исходный код</a></li>
 					</ul>
 				</div><!-- .col-md-3 -->
-
-				<div class="col-md-9">
-					<div class="well well-lg">
-						<img src="<?php echo MEDIA_URL; ?>/cases/3/img/google.jpg" class="img-responsive" id="main-image">
-						<h4 id="main-name">google</h4>
-						<hr>
-
-						<a href="#google"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/google.jpg" class="img-thumbnail"></a>
-						<a href="#ibm"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/ibm.jpg" class="img-thumbnail"></a>
-						<a href="#paypal"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/paypal.jpg" class="img-thumbnail"></a>
-						<a href="#pingfm"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/pingfm.jpg" class="img-thumbnail"></a>
-						<a href="#yahoo"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/yahoo.jpg" class="img-thumbnail"></a>
-					</div><!-- .well -->
-				</div><!-- .col-md-9 -->
 			</div><!-- .row -->
 		</div><!-- .container -->
 
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
-		<script>
-			$(function() {
-				$(window).bind('hashchange', function() {
-					// NOTE: The following code intended for demonstration purposes only.
-					//       It is EXTREMELY DANGER to use it for real applications.
-					var name = location.hash.slice(1);
-
-					$('#main-name').html(name);
-					$('#main-image').attr('src', '<?php echo MEDIA_URL; ?>/cases/3/img/' + name + '.jpg');
-				});
-			});
-		</script>
 	</body>
 </html>
