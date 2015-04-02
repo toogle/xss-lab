@@ -19,6 +19,28 @@
 				min-width: 100%;
 				max-width: none;
 			}
+
+			/*this is for the nice file input*/
+			.btn-file input[type=file] {
+			  	position: absolute;
+			  	top: 0;
+			  	right: 0;
+			  	min-width: 100%;
+			  	min-height: 100%;
+			  	font-size: 100px;
+			  	text-align: right;
+			  	filter: alpha(opacity=0);
+			  	opacity: 0;
+			  	background: red;
+			  	cursor: inherit;
+			  	display: block;
+			}
+
+			input[readonly] {
+			  	background-color: white !important;
+			  	cursor: text !important;
+			}
+
 		</style>
 
 		<!--[if lt IE 9]>
@@ -110,12 +132,53 @@
 						    	<span class="sr-only">Next</span>
 						  	</a>
 						</div>
-					</div><!-- .well -->
-				</div><!-- .col-md-9 -->
+
+						<div style="margin-top: 20px; margin-left: 10px; margin-right: 10px;">
+							<div class="row">  
+					            <div class="input-group">
+					                <span class="input-group-btn">
+					                    <span class="btn btn-primary btn-file">
+					                        Обзор&hellip; 
+					                        <input type="file">
+					                    </span>
+					                </span>
+					                <input type="text" class="form-control" readonly>
+					                <span class="input-group-btn">
+				                        <button type="submit" class="btn btn-success">Добавить добра</button>
+					                </span>
+					            </div>
+						    </div>
+					    </div>
+					</div>
+				</div>
 			</div><!-- .row -->
 		</div><!-- .container -->
 
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
+
+		<!-- this is for the nice file input -->
+		<script>
+			$(document).on('change', '.btn-file :file', function() {
+			    var input = $(this),
+			    	numFiles = input.get(0).files ? input.get(0).files.length : 1,
+			        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+			    input.trigger('fileselect', [numFiles, label]);
+			});
+
+			$(document).ready( function() {
+			    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+			        
+			        var input = $(this).parents('.input-group').find(':text'),
+			            log = numFiles > 1 ? numFiles + ' files selected' : label;
+			        
+			        if( input.length ) {
+			            input.val(log);
+			        } else {
+			            if( log ) alert(log);
+			        }			        
+			    });
+			});
+		</script>
 	</body>
 </html>
