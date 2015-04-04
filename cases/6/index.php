@@ -92,7 +92,7 @@
 								  <!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
 								    <div class="item active">
-								        <img src="<?php echo MEDIA_URL; ?>/cases/6/cats/1.jpg">
+								        <img src="<?php echo MEDIA_URL; ?>/cases/6/images/1.jpg">
 								        <div class="carousel-caption">
 									        <h3>Даже самое маленькое из кошачьих - совершенство.</h3>
 									        <h5>Леонардо да Винчи</h5>
@@ -100,7 +100,7 @@
 								    </div>
 
 								    <div class="item">
-								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/2.jpg">
+								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/images/2.jpg">
 								      	<div class="carousel-caption">
 									        <h3>Если человека можно было бы скрестить с кошкой, человек от этого только бы выиграл. Чего нельзя сказать о кошке.</h3>
 									        <h5>Марк Твен</h5>
@@ -108,7 +108,7 @@
 								    </div>
 
 								    <div class="item">
-								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/3.jpg">
+								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/images/3.jpg">
 								      	<div class="carousel-caption">
 									        <h3>Человек культурен настолько, насколько он способен понять кошку.</h3>
 									        <h5>Бернард Шоу</h5>
@@ -116,7 +116,7 @@
 								    </div>
 
 								    <div class="item">
-								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/4.jpg">
+								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/images/4.jpg">
 								      	<div class="carousel-caption">
 									        <h3>Люди заводят собак, а кошки людей. Видно, считают их полезными домашними животными.</h3>
 									        <h5>Джордж Микеш</h5>
