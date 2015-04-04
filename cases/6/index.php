@@ -89,37 +89,19 @@
 								    <li data-target="#myCarousel" data-slide-to="3"></li>
 								</ol>
 
+
+								<?php
+									$dir = "images";
+									$files = preg_grep('/^([^.])/', scandir($dir));
+								?>
+
 								  <!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox">
+								<div class="carousel-inner" role="listbox" id="carousel">
 								    <div class="item active">
 								        <img src="<?php echo MEDIA_URL; ?>/cases/6/images/1.jpg">
 								        <div class="carousel-caption">
 									        <h3>Даже самое маленькое из кошачьих - совершенство.</h3>
 									        <h5>Леонардо да Винчи</h5>
-									    </div>
-								    </div>
-
-								    <div class="item">
-								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/images/2.jpg">
-								      	<div class="carousel-caption">
-									        <h3>Если человека можно было бы скрестить с кошкой, человек от этого только бы выиграл. Чего нельзя сказать о кошке.</h3>
-									        <h5>Марк Твен</h5>
-									    </div>
-								    </div>
-
-								    <div class="item">
-								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/images/3.jpg">
-								      	<div class="carousel-caption">
-									        <h3>Человек культурен настолько, насколько он способен понять кошку.</h3>
-									        <h5>Бернард Шоу</h5>
-									    </div>
-								    </div>
-
-								    <div class="item">
-								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/images/4.jpg">
-								      	<div class="carousel-caption">
-									        <h3>Люди заводят собак, а кошки людей. Видно, считают их полезными домашними животными.</h3>
-									        <h5>Джордж Микеш</h5>
 									    </div>
 								    </div>
 								</div>
@@ -134,6 +116,28 @@
 							    	<span class="sr-only">Next</span>
 							  	</a>
 							</div>
+
+
+
+							<script>
+								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
+
+								files.forEach(function(element)
+								{
+									var carousel = document.getElementById("carousel");
+									var html = '<div class="item">' +
+											   		'<img src="<?php echo MEDIA_URL; ?>/cases/6/images/' + element + '">' +
+								    			'</div>';
+								
+									carousel.innerHTML += html;
+								}
+								);
+
+
+							</script>
+
+
+
 
 							<div style="margin-top: 20px; margin-left: 10px; margin-right: 10px;">
 								<div class="row">  
