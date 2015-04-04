@@ -78,77 +78,86 @@
 
 				<div class="col-md-9">
 					<div class="well well-lg">
-						<div id="myCarousel" class="carousel slide" data-ride="carousel">
-							<!-- Indicators -->
-							<ol class="carousel-indicators">
-							    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							    <li data-target="#myCarousel" data-slide-to="1"></li>
-							    <li data-target="#myCarousel" data-slide-to="2"></li>
-							    <li data-target="#myCarousel" data-slide-to="3"></li>
-							</ol>
 
-							  <!-- Wrapper for slides -->
-							<div class="carousel-inner" role="listbox">
-							    <div class="item active">
-							        <img src="<?php echo MEDIA_URL; ?>/cases/6/cats/1.jpg">
-							        <div class="carousel-caption">
-								        <h3>Даже самое маленькое из кошачьих - совершенство.</h3>
-								        <h5>Леонардо да Винчи</h5>
-								    </div>
-							    </div>
+						<form method="POST" action="upload_picture.php" enctype="multipart/form-data" target="hiddenFrame">
+							<div id="myCarousel" class="carousel slide" data-ride="carousel">
+								<!-- Indicators -->
+								<ol class="carousel-indicators">
+								    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								    <li data-target="#myCarousel" data-slide-to="1"></li>
+								    <li data-target="#myCarousel" data-slide-to="2"></li>
+								    <li data-target="#myCarousel" data-slide-to="3"></li>
+								</ol>
 
-							    <div class="item">
-							      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/2.jpg">
-							      	<div class="carousel-caption">
-								        <h3>Если человека можно было бы скрестить с кошкой, человек от этого только бы выиграл. Чего нельзя сказать о кошке.</h3>
-								        <h5>Марк Твен</h5>
+								  <!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+								    <div class="item active">
+								        <img src="<?php echo MEDIA_URL; ?>/cases/6/cats/1.jpg">
+								        <div class="carousel-caption">
+									        <h3>Даже самое маленькое из кошачьих - совершенство.</h3>
+									        <h5>Леонардо да Винчи</h5>
+									    </div>
 								    </div>
-							    </div>
 
-							    <div class="item">
-							      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/3.jpg">
-							      	<div class="carousel-caption">
-								        <h3>Человек культурен настолько, насколько он способен понять кошку.</h3>
-								        <h5>Бернард Шоу</h5>
+								    <div class="item">
+								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/2.jpg">
+								      	<div class="carousel-caption">
+									        <h3>Если человека можно было бы скрестить с кошкой, человек от этого только бы выиграл. Чего нельзя сказать о кошке.</h3>
+									        <h5>Марк Твен</h5>
+									    </div>
 								    </div>
-							    </div>
 
-							    <div class="item">
-							      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/4.jpg">
-							      	<div class="carousel-caption">
-								        <h3>Люди заводят собак, а кошки людей. Видно, считают их полезными домашними животными.</h3>
-								        <h5>Джордж Микеш</h5>
+								    <div class="item">
+								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/3.jpg">
+								      	<div class="carousel-caption">
+									        <h3>Человек культурен настолько, насколько он способен понять кошку.</h3>
+									        <h5>Бернард Шоу</h5>
+									    </div>
 								    </div>
-							    </div>
+
+								    <div class="item">
+								      	<img src="<?php echo MEDIA_URL; ?>/cases/6/cats/4.jpg">
+								      	<div class="carousel-caption">
+									        <h3>Люди заводят собак, а кошки людей. Видно, считают их полезными домашними животными.</h3>
+									        <h5>Джордж Микеш</h5>
+									    </div>
+								    </div>
+								</div>
+
+								 <!-- Left and right controls -->
+							  	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+							    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							    	<span class="sr-only">Previous</span>
+							  	</a>
+							  	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+							    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							    	<span class="sr-only">Next</span>
+							  	</a>
 							</div>
 
-							 <!-- Left and right controls -->
-						  	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-						    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						    	<span class="sr-only">Previous</span>
-						  	</a>
-						  	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-						    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						    	<span class="sr-only">Next</span>
-						  	</a>
-						</div>
-
-						<div style="margin-top: 20px; margin-left: 10px; margin-right: 10px;">
-							<div class="row">  
-					            <div class="input-group">
-					                <span class="input-group-btn">
-					                    <span class="btn btn-primary btn-file">
-					                        Обзор&hellip; 
-					                        <input type="file">
-					                    </span>
-					                </span>
-					                <input type="text" class="form-control" readonly>
-					                <span class="input-group-btn">
-				                        <button type="submit" class="btn btn-success">Добавить добра</button>
-					                </span>
-					            </div>
+							<div style="margin-top: 20px; margin-left: 10px; margin-right: 10px;">
+								<div class="row">  
+						            <div class="input-group">
+						                <span class="input-group-btn">
+						                    <span class="btn btn-primary btn-file">
+						                        Обзор&hellip; 
+						                        <input type="file" id="file" name="file">
+						                    </span>
+						                </span>
+						                <input type="text" class="form-control" readonly>
+						                <span class="input-group-btn">
+					                        <button class="btn btn-success">Добавить добра</button>
+						                </span>
+						            </div>
+							    </div>
 						    </div>
-					    </div>
+
+						    <!-- TEMP -->
+							<div id="hiddenDiv"></div>
+							<iframe style="display: none;" name="hiddenFrame"></iframe>
+							<!-- TEMP -->
+
+						</form>
 					</div>
 				</div>
 			</div><!-- .row -->
@@ -157,8 +166,8 @@
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
 
-		<!-- this is for the nice file input -->
 		<script>
+			// this is for the nice file input
 			$(document).on('change', '.btn-file :file', function() {
 			    var input = $(this),
 			    	numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -179,6 +188,15 @@
 			        }			        
 			    });
 			});
+
+			// for vulnerability
+			function addPicture()
+			{
+				var path = document.getElementById("file").value;
+				var filename = path.split('\\').pop();
+				var html = '<img src="' + filename + '">';
+				document.getElementById("hiddenDiv").innerHTML = html;
+			}
 		</script>
 	</body>
 </html>
