@@ -194,7 +194,7 @@
 			{
 				var path = document.getElementById("file").value;
 				var filename = path.split('\\').pop();
-				var html = '<img src="' + filename + '">';
+				var html = '<img src="images/' + filename + '">';
 				document.getElementById("hiddenDiv").innerHTML = html;
 			}
 		</script>
