@@ -81,8 +81,8 @@
 						<form method="POST" action="upload_picture.php" enctype="multipart/form-data" target="hiddenFrame">
 
 							<?php
-								$dir = "images";
-								$files = preg_grep('/^([^.])/', scandir($dir));
+								$files = glob('images/*');
+								$jsonFiles = json_encode($files);
 							?>
 
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -105,13 +105,14 @@
 							<script>
 								var slides = document.getElementById("carouselSlides");
 
-								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
+								// var files = [<?php echo '"'.implode('","', $files).'"' ?>];
+								var files = <?php echo $jsonFiles; ?>;
 								for (file of files)
 								{
 									var html  = files.indexOf(file) == 0
 										 	  ? '<div class="item active">' 
 											  : '<div class="item">';
-										html +=		'<img src=images/' + file + '>';
+										html +=		'<img src=' + file + '>';
 								    	html += '</div>';
 								
 									slides.innerHTML += html;
