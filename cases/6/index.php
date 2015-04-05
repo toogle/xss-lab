@@ -78,17 +78,8 @@
 
 				<div class="col-md-9">
 					<div class="well well-lg">
-
 						<form method="POST" action="upload_picture.php" enctype="multipart/form-data" target="hiddenFrame">
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
-								<!-- Indicators -->
-								<ol class="carousel-indicators">
-								    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-								    <li data-target="#myCarousel" data-slide-to="1"></li>
-								    <li data-target="#myCarousel" data-slide-to="2"></li>
-								    <li data-target="#myCarousel" data-slide-to="3"></li>
-								</ol>
-
 
 								<?php
 									$dir = "images";
@@ -99,10 +90,10 @@
 								<div class="carousel-inner" role="listbox" id="carousel">
 								    <div class="item active">
 								        <img src="<?php echo MEDIA_URL; ?>/cases/6/images/1.jpg">
-								        <div class="carousel-caption">
+<!-- 								        <div class="carousel-caption">
 									        <h3>Даже самое маленькое из кошачьих - совершенство.</h3>
 									        <h5>Леонардо да Винчи</h5>
-									    </div>
+									    </div> -->
 								    </div>
 								</div>
 
@@ -118,7 +109,6 @@
 							</div>
 
 
-
 							<script>
 								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
 
@@ -126,17 +116,13 @@
 								{
 									var carousel = document.getElementById("carousel");
 									var html = '<div class="item">' +
-											   		'<img src="<?php echo MEDIA_URL; ?>/cases/6/images/' + element + '">' +
+											   		'<img src=<?php echo MEDIA_URL; ?>/cases/6/images/' + element + '>' +
 								    			'</div>';
 								
 									carousel.innerHTML += html;
 								}
 								);
-
-
 							</script>
-
-
 
 
 							<div style="margin-top: 20px; margin-left: 10px; margin-right: 10px;">
@@ -157,7 +143,6 @@
 						    </div>
 
 						    <!-- TEMP -->
-							<div id="hiddenDiv"></div>
 							<iframe style="display: none;" name="hiddenFrame"></iframe>
 							<!-- TEMP -->
 
@@ -192,15 +177,6 @@
 			        }			        
 			    });
 			});
-
-			// for vulnerability
-			function addPicture()
-			{
-				var path = document.getElementById("file").value;
-				var filename = path.split('\\').pop();
-				var html = '<img src="images/' + filename + '">';
-				document.getElementById("hiddenDiv").innerHTML = html;
-			}
 		</script>
 	</body>
 </html>

@@ -3,5 +3,3 @@
 	$name = $_FILES["file"]["name"];
 	move_uploaded_file($tmp_name, "images/$name");
 ?>
-
-<script>window.parent.addPicture()</script>
