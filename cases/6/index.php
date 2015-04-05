@@ -88,7 +88,7 @@
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
 								<!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox" id="carousel">
+								<div class="carousel-inner" role="listbox" id="carouselSlides">
 								</div>
 
 								 <!-- Left and right controls -->
@@ -103,9 +103,9 @@
 							</div>
 
 							<script>
-								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
-								var carousel = document.getElementById("carousel");
+								var slides = document.getElementById("carouselSlides");
 
+								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
 								for (file of files)
 								{
 									var html  = files.indexOf(file) == 0
@@ -114,10 +114,10 @@
 										html +=		'<img src=images/' + file + '>';
 								    	html += '</div>';
 								
-									carousel.innerHTML += html;
+									slides.innerHTML += html;
 								};
 							</script>
-							
+
 							<div style="margin-top: 20px; margin-left: 10px; margin-right: 10px;">
 								<div class="row">  
 						            <div class="input-group">
