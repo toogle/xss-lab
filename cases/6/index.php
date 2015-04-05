@@ -79,19 +79,16 @@
 				<div class="col-md-9">
 					<div class="well well-lg">
 						<form method="POST" action="upload_picture.php" enctype="multipart/form-data" target="hiddenFrame">
+
+							<?php
+								$dir = "images";
+								$files = preg_grep('/^([^.])/', scandir($dir));
+							?>
+
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-								<?php
-									$dir = "images";
-									$files = preg_grep('/^([^.])/', scandir($dir));
-								?>
-
-								  <!-- Wrapper for slides -->
+								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox" id="carousel">
-<!-- 								        <div class="carousel-caption">
-									        <h3>Даже самое маленькое из кошачьих - совершенство.</h3>
-									        <h5>Леонардо да Винчи</h5>
-									    </div> -->
 								</div>
 
 								 <!-- Left and right controls -->
@@ -104,7 +101,6 @@
 							    	<span class="sr-only">Next</span>
 							  	</a>
 							</div>
-
 
 							<script>
 								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
@@ -121,8 +117,7 @@
 									carousel.innerHTML += html;
 								};
 							</script>
-
-
+							
 							<div style="margin-top: 20px; margin-left: 10px; margin-right: 10px;">
 								<div class="row">  
 						            <div class="input-group">
