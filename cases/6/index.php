@@ -108,6 +108,8 @@
 								var files = <?php echo $jsonFiles; ?>;
 								for (file of files)
 								{
+									// NOTE: The following code intended for demonstration purposes only.
+									//       It is EXTREMELY DANGER to use it for real applications.						
 									var html  = files.indexOf(file) == 0
 										 	  ? "<div class='item active'>"
 											  : "<div class='item'>";
