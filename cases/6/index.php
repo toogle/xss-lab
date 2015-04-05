@@ -105,15 +105,14 @@
 							<script>
 								var slides = document.getElementById("carouselSlides");
 
-								// var files = [<?php echo '"'.implode('","', $files).'"' ?>];
 								var files = <?php echo $jsonFiles; ?>;
 								for (file of files)
 								{
 									var html  = files.indexOf(file) == 0
-										 	  ? '<div class="item active">' 
-											  : '<div class="item">';
-										html +=		'<img src=' + file + '>';
-								    	html += '</div>';
+										 	  ? "<div class='item active'>"
+											  : "<div class='item'>";
+										html +=		"<img src='" + file + "'>";
+								    	html += "</div>";
 								
 									slides.innerHTML += html;
 								};
@@ -135,12 +134,9 @@
 						            </div>
 							    </div>
 						    </div>
-
-						    <!-- TEMP -->
-							<iframe style="display: none;" name="hiddenFrame"></iframe>
-							<!-- TEMP -->
-
 						</form>
+
+						<iframe style="display: none;" name="hiddenFrame"></iframe>
 					</div>
 				</div>
 			</div><!-- .row -->
