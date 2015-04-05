@@ -108,19 +108,18 @@
 
 							<script>
 								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
+								var carousel = document.getElementById("carousel");
 
-								files.forEach(function(element, index)
+								for (file of files)
 								{
-									var carousel = document.getElementById("carousel");
-									var html =  index == 0
+									var html  = files.indexOf(file) == 0
 										 	  ? '<div class="item active">' 
 											  : '<div class="item">';
-										html +=		'<img src=images/' + element + '>';
+										html +=		'<img src=images/' + file + '>';
 								    	html += '</div>';
 								
 									carousel.innerHTML += html;
-								}
-								);
+								};
 							</script>
 
 
