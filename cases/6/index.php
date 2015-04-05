@@ -88,13 +88,10 @@
 
 								  <!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox" id="carousel">
-								    <div class="item active">
-								        <img src="<?php echo MEDIA_URL; ?>/cases/6/images/1.jpg">
 <!-- 								        <div class="carousel-caption">
 									        <h3>Даже самое маленькое из кошачьих - совершенство.</h3>
 									        <h5>Леонардо да Винчи</h5>
 									    </div> -->
-								    </div>
 								</div>
 
 								 <!-- Left and right controls -->
@@ -112,12 +109,14 @@
 							<script>
 								var files = [<?php echo '"'.implode('","', $files).'"' ?>];
 
-								files.forEach(function(element)
+								files.forEach(function(element, index)
 								{
 									var carousel = document.getElementById("carousel");
-									var html = '<div class="item">' +
-											   		'<img src=<?php echo MEDIA_URL; ?>/cases/6/images/' + element + '>' +
-								    			'</div>';
+									var html =  index == 0
+										 	  ? '<div class="item active">' 
+											  : '<div class="item">';
+										html +=		'<img src=images/' + element + '>';
+								    	html += '</div>';
 								
 									carousel.innerHTML += html;
 								}
