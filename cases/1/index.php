@@ -152,8 +152,41 @@ header('X-XSS-Protection: 0');
 						mysqli_close($conn);
 						?>
 					</div><!-- .well -->
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Подсказка
+							<a href="#" class="pull-right" data-toggle="collapse" data-target="#hint">показать</a>
+						</div>
+						<div id="hint" class="panel-body collapse">
+							<p>
+								Это задание имитирует некоторый каталог материалов с возможностью поиска по ним. 
+								Результатом реализации XSS-инъекции будет выполнение некоторого непредусмотренного
+								сценария в браузере (для proof-of-concept можно, например, отобразить окошко с
+								информацией с помощью функции <a href="http://www.w3schools.com/jsref/met_win_alert.asp">alert()</a>).
+							</p>
+
+							<p>
+								В задании в окне результатов поиска всегда отображается поисковый запрос. В таких 
+								случаях при исследовании ресурса вначале всегда имеет смысл включить в запрос 
+								HTML-теги и проверить, присутствуют ли они в ответе сервера.
+							</p>
+						</div>
+					</div>
 				</div><!-- .col-md-9 -->
 			</div><!-- .row -->
 		</div><!-- .container -->
+
+		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
+		<script src="../../js/lib/bootstrap.min.js"></script>
+		<script>
+			$('#hint').on('show.bs.collapse', function() {
+				$('a[data-target="#hint"]').html('скрыть');
+			});
+
+			$('#hint').on('hide.bs.collapse', function() {
+				$('a[data-target="#hint"]').html('показать');
+			});
+		</script>
 	</body>
 </html>
