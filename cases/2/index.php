@@ -179,6 +179,28 @@ if (isset($_GET['id'])) {
 						mysqli_close($conn);
 						?>
 					</div><!-- .well -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Подсказка
+							<a href="#" class="pull-right" data-toggle="collapse" data-target="#hint">показать</a>
+						</div>
+						<div id="hint" class="panel-body collapse">
+							<p>
+								Это задание имитирует гостевую книгу на сайте, где можно добавлять и просматривать
+								комментарии. Результатом реализации XSS-инъекции будет сохранение вредосного кода 
+								на сервере, который будет выполняться во всех ответах на один и тот же клиентский запрос.
+							</p>
+
+							<p>
+								Бывает так, что в случае взаимодействия с базой данных сайт корректно обрабатывает 
+								пользовательский ввод перед его добавлением в базу, однако не делает этого перед его
+								извлечением оттуда. В этом задании следует обратить внимание на то, что при 
+								просмотре записи ее название отображается не только на самой странице, но и в заголовке.
+								За заголовок веб-страницы отвечает HTML-тег 
+								<font color="red">&lt;title&gt;&lt;/title&gt;</font>.
+							</p>
+						</div>
+					</div>
 				</div><!-- .col-md-9 -->
 			</div><!-- .row -->
 
@@ -216,5 +238,14 @@ if (isset($_GET['id'])) {
 
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
+		<script>
+			$('#hint').on('show.bs.collapse', function() {
+				$('a[data-target="#hint"]').html('скрыть');
+			});
+
+			$('#hint').on('hide.bs.collapse', function() {
+				$('a[data-target="#hint"]').html('показать');
+			});
+		</script>
 	</body>
 </html>
