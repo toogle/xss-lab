@@ -162,7 +162,7 @@ header('X-XSS-Protection: 0');
 							<p>
 								Это задание имитирует некоторый каталог материалов с возможностью поиска по ним. 
 								Результатом реализации XSS-инъекции будет выполнение некоторого непредусмотренного
-								сценария в браузере (для proof-of-concept можно, например, отобразить окошко с
+								сценария в браузере (для <u>proof-of-concept</u> можно, например, отобразить окошко с
 								информацией с помощью функции <a href="http://www.w3schools.com/jsref/met_win_alert.asp">alert()</a>).
 							</p>
 
@@ -177,8 +177,8 @@ header('X-XSS-Protection: 0');
 			</div><!-- .row -->
 		</div><!-- .container -->
 
-		<script src="../../js/lib/jquery-1.11.1.min.js"></script>
-		<script src="../../js/lib/bootstrap.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
 		<script>
 			$('#hint').on('show.bs.collapse', function() {
 				$('a[data-target="#hint"]').html('скрыть');
