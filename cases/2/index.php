@@ -10,6 +10,9 @@ if (isset($_COOKIE['__uid'])) {
 }
 
 $conn = @mysqli_connect(MYSQL_HOST, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
+mysqli_query($conn, "SET NAMES utf8");
+mysqli_query($conn, "SET CHARACTER SET utf8");
+mysqli_set_charset($conn, 'utf8');
 
 if (isset($_GET['id'])) {
 	$id = intval($_GET['id']);
