@@ -67,11 +67,35 @@
 						<a href="#pingfm"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/pingfm.jpg" class="img-thumbnail"></a>
 						<a href="#yahoo"><img src="<?php echo MEDIA_URL; ?>/cases/3/img/yahoo.jpg" class="img-thumbnail"></a>
 					</div><!-- .well -->
+					
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Подсказка
+							<a href="#" class="pull-right" data-toggle="collapse" data-target="#hint">показать</a>
+						</div>
+						<div id="hint" class="panel-body collapse">
+							<p>
+								Это задание имитирует простейшее средство онлайн-просмотра фотоальбомов. Результатом 
+								реализации XSS-инъекции будет URL с этого сайта, при переходе по которому в браузере
+								выполняется некоторый вредоносный скрипт.
+							</p>
+
+							<p>
+								На некоторых страницах сайта может вообще не быть взаимодействия с сервером, однако
+								это не гарантирует защиты от XSS. Для XSS, основанной на объектной модели документа
+								(<i>DOM-based</i>), достаточно того, чтобы какой-нибудь сценарий JavaScript на странице 
+								имел <u>доступ</u> к параметру URL и формировал страницу, задействуя его (без необходимых 
+								проверок). Такое может быть, например, при использовании <i>локальных ссылок</i> для навигации 
+								по текущей странице.
+							</p>
+						</div>
+					</div>
 				</div><!-- .col-md-9 -->
 			</div><!-- .row -->
 		</div><!-- .container -->
 
 		<script src="<?php echo MEDIA_URL; ?>/js/lib/jquery-1.11.1.min.js"></script>
+		<script src="<?php echo MEDIA_URL; ?>/js/lib/bootstrap.min.js"></script>
 		<script>
 			$(function() {
 				$(window).bind('hashchange', function() {
@@ -82,6 +106,15 @@
 					$('#main-name').html(name);
 					$('#main-image').attr('src', '<?php echo MEDIA_URL; ?>/cases/3/img/' + name + '.jpg');
 				});
+			});
+		</script>
+		<script>
+			$('#hint').on('show.bs.collapse', function() {
+				$('a[data-target="#hint"]').html('скрыть');
+			});
+
+			$('#hint').on('hide.bs.collapse', function() {
+				$('a[data-target="#hint"]').html('показать');
 			});
 		</script>
 	</body>
