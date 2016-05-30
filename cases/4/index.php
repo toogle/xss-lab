@@ -50,6 +50,7 @@ header('X-XSS-Protection: 0');
 								<li><a href="../2/">Задание №2</a></li>
 								<li><a href="../3/">Задание №3</a></li>
 								<li class="active"><a href=".">Задание №4</a></li>
+								<li><a href="../5/">Задание №5</a></li>
 							</ul>
 						</li>
 						<li><a href="https://github.com/toogle/xss-lab" target="_blank">Исходный код</a></li>
