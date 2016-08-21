@@ -68,6 +68,7 @@
 								<li><a href="cases/2/">Задание №2</a></li>
 								<li><a href="cases/3/">Задание №3</a></li>
 								<li><a href="cases/4/">Задание №4</a></li>
+								<li><a href="cases/6/">Задание №6</a></li>
 							</ul>
 						</li>
 						<li><a href="https://github.com/toogle/xss-lab" target="_blank">Исходный код</a></li>
